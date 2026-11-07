@@ -1,0 +1,16 @@
+FRONTOFFICE+ TENANT BACKEND UPDATE - TEST BEFORE PRODUCTION
+
+1) STOP the running uvicorn process.
+2) Keep your existing backend/hotel.db backup.
+3) Copy the contents of this backend folder into your project's backend folder, overwriting the listed Python files after keeping a copy of the originals.
+4) Do NOT replace hotel.db, frontend/, or .venv.
+5) From backend with the virtual environment active, run:
+   python -m uvicorn main:app --host 127.0.0.1 --port 8000
+6) Startup migration adds nullable hotel_id columns where missing, creates a dedicated Legacy Demo Workspace, and assigns the existing demo records/transactions to that workspace. It does not delete existing records.
+7) Existing legacy login remains: manager@hotel.test / ChangeMe123!
+8) New Hotel Owner accounts created by Platform Admin can log in through the same /api/login endpoint, and access is checked against hotel status and subscription dates.
+
+IMPORTANT:
+- Test with a COPY of hotel.db first. Keep the original backup untouched.
+- This is a development-stage migration. Review security settings (especially HOTEL_SECRET_KEY, PLATFORM_ADMIN_PASSWORD, COOKIE_SECURE=1 behind HTTPS), add CSRF protections/rate limiting, and run multi-tenant tests before public production use.
+- Existing hotel creation currently activates subscriptions at creation. Only create/activate after payment confirmation.
