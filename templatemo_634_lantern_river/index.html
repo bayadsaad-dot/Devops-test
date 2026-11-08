@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Toro Studio | Lantern River Festival</title>
+<meta name="description" content="Toro Studio, a light and paper design studio in Hoi An. Follow a floating lotus lantern down a festival river at night.">
+<!--
+  Lantern River Template
+  https://templatemo.com/tm-634-lantern-river
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="templatemo-634-style.css">
+</head>
+<body>
+<a class="sr" href="#bridge">Skip to content</a>
+
+<div id="loader" role="status" aria-live="polite">
+  <div class="ld">
+    <div class="ld-lantern" aria-hidden="true"></div>
+    <p>Lighting the lanterns</p>
+    <div class="ld-bar"><i id="ldFill"></i></div>
+    <small>Toro Studio · Hội An</small>
+  </div>
+</div>
+
+<div class="scene-fallback" aria-hidden="true"></div>
+<canvas id="scene" aria-label="A paper lotus lantern floating down a festival river at night in Hoi An" tabindex="-1"></canvas>
+
+<header class="bar" id="bar">
+  <a class="brand" href="#launch" aria-label="Toro Studio, back to the launch steps">
+    <svg viewBox="0 0 22 28" aria-hidden="true"><line x1="11" y1="0" x2="11" y2="4" stroke="#FFE082" stroke-width="1"/><rect x="6" y="4" width="10" height="2" rx="1" fill="#5C3B24"/><ellipse cx="11" cy="14" rx="9" ry="8.5" fill="#FFB300"/><ellipse cx="11" cy="14.5" rx="5" ry="6.5" fill="#FFE082" opacity=".75"/><path d="M4 14 Q11 9 18 14 M4 16 Q11 21 18 16" stroke="#FF8F00" stroke-width=".7" fill="none" opacity=".7"/><rect x="6" y="22" width="10" height="2" rx="1" fill="#5C3B24"/><line x1="11" y1="24" x2="11" y2="28" stroke="#E2553F" stroke-width="1.4"/></svg>
+    <div><b>Toro Studio</b><span>Light &amp; paper · Hội An</span></div>
+  </a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <span class="nav-glow" aria-hidden="true"></span>
+    <a href="#launch" data-z="0">Launch</a>
+    <a href="#bridge" data-z="1">Studio</a>
+    <a href="#market" data-z="2">Work</a>
+    <a href="#pier" data-z="3">Services</a>
+    <a href="#lanterns" data-z="4">Pricing</a>
+    <a href="#wish" data-z="5">Contact</a>
+  </nav>
+  <div class="tools">
+    <button class="tool trayBtn" id="trayBtn" type="button" aria-pressed="true" aria-controls="tray" aria-label="Hide lantern choices (L)" title="Lantern choices (L)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v2.2"/><rect x="8.6" y="5.7" width="6.8" height="1.6" rx=".6"/><path d="M7.4 9.2c0-1.1.9-1.9 2-1.9h5.2c1.1 0 2 .8 2 1.9v6.1c0 1.1-.9 1.9-2 1.9H9.4c-1.1 0-2-.8-2-1.9z"/><path d="M12 7.3v9.9M9.6 7.6c-1 2.8-1 6.6 0 9.3M14.4 7.6c1 2.8 1 6.6 0 9.3" class="rib"/><rect x="8.6" y="17.2" width="6.8" height="1.6" rx=".6"/><path d="M12 18.8v2.2"/></svg></button>
+    <button class="tool snd pending" id="sndBtn" type="button" aria-label="Sound on, click once to wake it" title="Sound">
+      <svg viewBox="0 0 22 16" aria-hidden="true"><path d="M2 6h3l4-3.5v11L5 10H2z" fill="currentColor" stroke="none"/><path class="wave" d="M12 5.2a3.6 3.6 0 0 1 0 5.6"/><path class="wave" d="M14.6 2.8a7 7 0 0 1 0 10.4"/><path class="slash" d="M3 1.5 19 14.5" stroke-width="1.6"/></svg>
+    </button>
+    <button class="tool fs" id="fsBtn" type="button" aria-label="Full screen" title="Full screen">
+      <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 6.5V2h4.5M11.5 2H16v4.5M16 11.5V16h-4.5M6.5 16H2v-4.5"/></svg>
+    </button>
+    <button class="tool" id="shotBtn" type="button" aria-label="Save a screenshot" title="Screenshot">
+      <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5.5h3l1.5-2h5l1.5 2h3v9H2z"/><circle cx="9" cy="10" r="2.8"/></svg>
+    </button>
+    <button class="tool burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><i></i></button>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" aria-label="Mobile">
+  <a href="#launch"><small>01</small>Launch steps</a>
+  <a href="#bridge"><small>02</small>The studio</a>
+  <a href="#market"><small>03</small>Lantern market</a>
+  <a href="#pier"><small>04</small>Services</a>
+  <a href="#lanterns"><small>05</small>Pricing</a>
+  <a href="#wish"><small>06</small>Wishing pier</a>
+  <a class="btn warm" href="#wish">Send us a wish</a>
+</nav>
+
+<aside class="route" id="route" aria-label="River route">
+  <a class="rt" href="#launch" data-z="0"><span>Launch steps</span><i></i></a>
+  <a class="rt" href="#bridge" data-z="1"><span>Covered bridge</span><i></i></a>
+  <a class="rt" href="#market" data-z="2"><span>Lantern market</span><i></i></a>
+  <a class="rt" href="#pier" data-z="3"><span>Sampan pier</span><i></i></a>
+  <a class="rt" href="#lanterns" data-z="4"><span>Fireworks bend</span><i></i></a>
+  <a class="rt" href="#wish" data-z="5"><span>Wishing pier</span><i></i></a>
+</aside>
+
+<main id="content">
+
+  <!-- 01 launch steps -->
+  <section class="zone hero" id="launch" data-zone="0">
+    <div class="hero-copy">
+      <p class="eyebrow">Toro Studio · Hội An</p>
+      <h1>Let it <em>drift.</em></h1>
+      <p class="lede">A light and paper design studio on the Thu Bồn river, making brands that glow quietly and last.</p>
+      <div class="cta">
+        <a class="btn warm" href="#bridge">Follow the lantern
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
+        <button class="btn ghost" type="button" data-free="1">Free Drift
+          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v6M5 8h6"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 covered bridge: about -->
+  <section class="zone left" id="bridge" data-zone="1">
+    <div class="plate reveal">
+      <p class="tag">02 · The covered bridge</p>
+      <h2>Built slowly, <em>lit by hand.</em></h2>
+      <p>Since 2012 we have worked from an old shophouse a few steps from the Japanese bridge. Lantern makers taught us the craft: a frame you can trust, paper you can feel, and light that only shows when it is needed.</p>
+      <p>Today nine of us design identities, packaging and spaces for teams who would rather be remembered than shouted about.</p>
+      <div class="tags" aria-label="Studio in numbers">
+        <div class="stat"><b data-count="14">14</b><small>years on the river</small></div>
+        <div class="stat"><b data-count="320">320</b><small>brands lit</small></div>
+        <div class="stat"><b data-count="9">9</b><small>makers in the studio</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 lantern market: portfolio -->
+  <section class="zone right" id="market" data-zone="2">
+    <div class="plate market-plate reveal">
+      <div class="mk-head">
+        <div>
+          <p class="tag">03 · Lantern market</p>
+          <h2>Work that <em>holds its glow.</em></h2>
+          <p>Six recent lanterns from the studio string. Light one, then open it to read its story.</p>
+        </div>
+        <div class="rail-nav">
+          <button class="arrow" id="railPrev" type="button" aria-label="Previous project"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+          <span class="count" id="railCount" aria-live="polite"><b>01</b> / 06</span>
+          <button class="arrow" id="railNext" type="button" aria-label="Next project"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+        </div>
+      </div>
+      <div class="rail" id="rail" tabindex="0" aria-label="Project lanterns, use arrow keys to move">
+        <svg class="string" aria-hidden="true" preserveAspectRatio="none"><path id="railString" d="M0 2 Q 50 20 100 2"/></svg>
+        <div class="scroller" id="scroller">
+        <div class="lane" id="lane">
+          <div class="card" role="button" tabindex="0" data-title="Thu Bồn Tea House" data-meta="Identity · Packaging · 2026" data-text="A riverside tea house that wanted its packaging to feel like folded paper lanterns. We built a mark from a single fold line and a palette steeped from real tea leaves.">
+            <div class="ph"><img src="images/lantern-river-teahouse.jpg" alt="Tea house identity and packaging" draggable="false" loading="lazy" onerror="this.style.display='none'"></div>
+            <div class="cap"><b>Thu Bồn Tea House</b><small>Identity · Packaging</small></div>
+          </div>
+          <div class="card" role="button" tabindex="0" data-title="Phố Hội Silk" data-meta="E-commerce · Art direction · 2025" data-text="Hand-loomed silk from a family workshop, now sold in 30 countries. We shot every bolt at dusk under lantern light and designed a shop that moves at the pace of weaving.">
+            <div class="ph"><img src="images/lantern-river-silk.jpg" alt="Silk shop e-commerce and art direction" draggable="false" loading="lazy" onerror="this.style.display='none'"></div>
+            <div class="cap"><b>Phố Hội Silk</b><small>E-commerce · Art direction</small></div>
+          </div>
+          <div class="card" role="button" tabindex="0" data-title="An Bàng Surf Club" data-meta="Brand system · 2025" data-text="A small surf club on An Bàng beach needed a brand that worked on boards, rash vests and a tiny bamboo cafe. The system is built from tide charts and morning colour.">
+            <div class="ph"><img src="images/lantern-river-surf.jpg" alt="Surf club brand system" draggable="false" loading="lazy" onerror="this.style.display='none'"></div>
+            <div class="cap"><b>An Bàng Surf Club</b><small>Brand system</small></div>
+          </div>
+          <div class="card" role="button" tabindex="0" data-title="Mỹ Sơn Night Walk" data-meta="Wayfinding · Light · 2024" data-text="Low lanterns and carved signs guide evening visitors through temple ruins without spoiling the dark. Every marker sits below knee height and glows at a single warm temperature.">
+            <div class="ph"><img src="images/lantern-river-temple.jpg" alt="Night walk wayfinding and lighting" draggable="false" loading="lazy" onerror="this.style.display='none'"></div>
+            <div class="cap"><b>Mỹ Sơn Night Walk</b><small>Wayfinding · Light</small></div>
+          </div>
+          <div class="card" role="button" tabindex="0" data-title="Rice Paper Press" data-meta="Editorial · Type · 2024" data-text="A quarterly about food and craft printed on mulberry paper. We drew a display face from old shop signs on Trần Phú street and set the whole issue around it.">
+            <div class="ph"><img src="images/lantern-river-press.jpg" alt="Rice paper editorial design" draggable="false" loading="lazy" onerror="this.style.display='none'"></div>
+            <div class="cap"><b>Rice Paper Press</b><small>Editorial · Type</small></div>
+          </div>
+          <div class="card" role="button" tabindex="0" data-title="Cẩm Thanh Basket Boats" data-meta="Campaign · Film · 2023" data-text="A short film and poster series for a village of basket boat makers, filmed entirely from the water. The campaign doubled their workshop bookings in one season.">
+            <div class="ph"><img src="images/lantern-river-boats.jpg" alt="Basket boat campaign and film" draggable="false" loading="lazy" onerror="this.style.display='none'"></div>
+            <div class="cap"><b>Cẩm Thanh Basket Boats</b><small>Campaign · Film</small></div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="rail-foot">
+        <div class="lights" id="railLights" aria-label="Choose a lantern"></div>
+        <p class="rail-hint">Click to light, click again to read.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 sampan pier: services -->
+  <section class="zone left" id="pier" data-zone="3">
+    <div class="plate pier-plate reveal">
+      <p class="tag">04 · Sampan pier</p>
+      <h2>What we <em>make together.</em></h2>
+      <p>Five crafts, one studio. Open a rib to unfold it.</p>
+      <div class="ribs" id="ribs">
+        <div class="rib open" role="button" tabindex="0" aria-expanded="true">
+          <span class="glowline"></span><span class="num">01</span><span class="vt">Identity</span>
+          <div class="body"><h3>Brand identity</h3><p>Names, marks and the small rules that keep a brand calm across every surface.</p><div class="chips"><span>Naming</span><span>Logo</span><span>Guidelines</span></div></div>
+        </div>
+        <div class="rib" role="button" tabindex="0" aria-expanded="false">
+          <span class="glowline"></span><span class="num">02</span><span class="vt">Packaging</span>
+          <div class="body"><h3>Packaging &amp; print</h3><p>Paper, folds and inks chosen by hand with local printers and craft workshops.</p><div class="chips"><span>Structure</span><span>Labels</span><span>Print runs</span></div></div>
+        </div>
+        <div class="rib" role="button" tabindex="0" aria-expanded="false">
+          <span class="glowline"></span><span class="num">03</span><span class="vt">Digital</span>
+          <div class="body"><h3>Digital &amp; web</h3><p>Websites and shops that load fast, read well and feel like the place they come from.</p><div class="chips"><span>Websites</span><span>E-commerce</span><span>Motion</span></div></div>
+        </div>
+        <div class="rib" role="button" tabindex="0" aria-expanded="false">
+          <span class="glowline"></span><span class="num">04</span><span class="vt">Spaces</span>
+          <div class="body"><h3>Spatial light</h3><p>Signs, lanterns and lighting plans for cafes, hotels, shops and festivals.</p><div class="chips"><span>Signage</span><span>Lighting</span><span>Wayfinding</span></div></div>
+        </div>
+        <div class="rib" role="button" tabindex="0" aria-expanded="false">
+          <span class="glowline"></span><span class="num">05</span><span class="vt">Campaigns</span>
+          <div class="body"><h3>Campaigns &amp; film</h3><p>Short films, posters and launch stories, shot on the river and in the old town.</p><div class="chips"><span>Film</span><span>Photography</span><span>Launches</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 fireworks bend: pricing -->
+  <section class="zone right" id="lanterns" data-zone="4">
+    <div class="plate price-plate reveal">
+      <p class="tag">05 · Fireworks bend</p>
+      <h2>Choose your <em>lantern.</em></h2>
+      <p>Three ways to start. Light one up to see what it holds.</p>
+      <div class="tiers" id="tiers" role="radiogroup" aria-label="Pricing tiers">
+        <div class="tier" role="radio" tabindex="0" aria-checked="false" data-i="0" data-price="2,400" data-weeks="3 weeks" data-items="One-page identity|Logo and colour set|Social kit|One revision round" data-color="#FFE082" style="--c:#FFE082">
+          <span class="cord" style="height:30px"></span><span class="lamp" style="width:78px;height:92px"><b>Tea<br>Light</b></span><span class="tassel"></span>
+        </div>
+        <div class="tier on" role="radio" tabindex="0" aria-checked="true" data-i="1" data-price="6,800" data-weeks="7 weeks" data-items="Full brand identity|Packaging or website|Photo direction|Three revision rounds" data-color="#FFB300" style="--c:#FFB300">
+          <span class="cord" style="height:52px"></span><span class="lamp" style="width:96px;height:112px"><b>Silk<br>Lantern</b></span><span class="tassel"></span>
+        </div>
+        <div class="tier" role="radio" tabindex="0" aria-checked="false" data-i="2" data-price="14,500" data-weeks="12 weeks" data-items="Identity, web and print|Spatial and signage plan|Launch film|A studio lead on call" data-color="#E2553F" style="--c:#E2553F">
+          <span class="cord" style="height:18px"></span><span class="lamp" style="width:86px;height:102px"><b>Festival</b></span><span class="tassel"></span>
+        </div>
+      </div>
+      <div class="tier-detail" id="tierDetail" aria-live="polite">
+        <span class="pr">$<span id="tierPrice">6,800</span><small>from</small></span>
+        <span class="wk" id="tierWeeks">7 weeks</span>
+        <ul id="tierItems"><li>Full brand identity</li><li>Packaging or website</li><li>Photo direction</li><li>Three revision rounds</li></ul>
+        <a class="btn ghost" href="#wish">Ask about this lantern</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 wishing pier: contact -->
+  <section class="zone left" id="wish" data-zone="5">
+    <div class="plate wish-plate reveal">
+      <p class="tag">06 · The wishing pier</p>
+      <h2>Send us <em>a wish.</em></h2>
+      <p>Write it on the lantern and let it go. We read every one and reply within two days.</p>
+      <form id="wishForm" novalidate>
+        <div class="row2">
+          <div class="field"><label for="fName">Name</label><input id="fName" name="name" autocomplete="name" placeholder="Your name"></div>
+          <div class="field"><label for="fMail">Email</label><input id="fMail" name="email" type="email" autocomplete="email" placeholder="you@studio.com"></div>
+        </div>
+        <div class="field"><label for="fType">Lantern</label>
+          <select id="fType" name="type"><option>Tea Light</option><option selected>Silk Lantern</option><option>Festival</option><option>Not sure yet</option></select>
+        </div>
+        <div class="field"><label for="fMsg">Your wish</label><textarea id="fMsg" name="message" placeholder="Tell us about your project"></textarea></div>
+        <div class="form-foot">
+          <p class="addr"><b>28 Bạch Đằng, Hội An</b><br>Open daily, 9:00 to 21:00</p>
+          <button class="btn warm" type="submit">Release lantern
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4"/></svg></button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span class="fb">Toro Studio</span>
+  <span>© 2026 Toro Studio, Hội An · Design: <a href="https://templatemo.com" rel="nofollow noopener" target="_blank">TemplateMo</a></span>
+</footer>
+
+<div class="dock" id="dock" role="region" aria-label="Scene controls">
+  <span class="hint" id="hint">Scroll to drift · click the water to ripple it</span>
+  <button class="x" id="dockClose" type="button" aria-label="Hide controls"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></button>
+</div>
+<div class="tray" id="tray" role="radiogroup" aria-label="Choose your lantern">
+    <button class="ln on" type="button" role="radio" aria-checked="true" data-d="0" title="Lotus (1)"><span class="key" aria-hidden="true">1</span><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="24" rx="10.5" ry="2.4" class="pad"/><path d="M16 7c2.2 4 2.6 8.6 0 13-2.6-4.4-2.2-9 0-13z"/><path d="M8 11.5c4.2 1.2 6.8 4.4 7.6 8.8-4.4-.8-7.3-3.8-7.6-8.8zM24 11.5c-4.2 1.2-6.8 4.4-7.6 8.8 4.4-.8 7.3-3.8 7.6-8.8z" opacity=".85"/><path d="M4.6 19.8c3.6-1.2 7.8-.6 11.4 1.6-3.6 1.7-7.9 1.4-11.4-1.6zM27.4 19.8c-3.6-1.2-7.8-.6-11.4 1.6 3.6 1.7 7.9 1.4 11.4-1.6z" opacity=".6"/></svg><span class="nm">Lotus</span><span class="pips" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><span class="sr">, speed 3 of 5</span></button>
+    <button class="ln" type="button" role="radio" aria-checked="false" data-d="1" title="Peony (2)"><span class="key" aria-hidden="true">2</span><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="24" rx="10.5" ry="2.4" class="pad"/><ellipse cx="16" cy="18.5" rx="9.5" ry="4.6" opacity=".55"/><ellipse cx="16" cy="17" rx="7" ry="4" opacity=".8"/><ellipse cx="16" cy="15.6" rx="4.4" ry="3.2"/></svg><span class="nm">Peony</span><span class="pips" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><span class="sr">, speed 3 of 5</span></button>
+    <button class="ln" type="button" role="radio" aria-checked="false" data-d="2" title="Star (3)"><span class="key" aria-hidden="true">3</span><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="23.6" rx="9" ry="2.2" class="paper"/><polygon points="16.0,11.2 17.3,16.5 23.3,12.7 19.4,17.5 27.9,16.6 20.2,19.0 27.9,21.4 19.4,20.5 23.3,25.3 17.3,21.5 16.0,26.8 14.7,21.5 8.7,25.3 12.6,20.5 4.1,21.4 11.8,19.0 4.1,16.6 12.6,17.5 8.7,12.7 14.7,16.5" opacity=".75"/><polygon points="16.0,13.2 17.0,16.0 20.9,14.4 18.4,16.9 23.0,17.5 18.4,18.1 20.9,20.6 17.0,19.0 16.0,21.8 15.0,19.0 11.1,20.6 13.6,18.1 9.0,17.5 13.6,16.9 11.1,14.4 15.0,16.0"/></svg><span class="nm">Star</span><span class="pips" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span><span class="sr">, speed 4 of 5</span></button>
+    <button class="ln" type="button" role="radio" aria-checked="false" data-d="3" title="Bud (4)"><span class="key" aria-hidden="true">4</span><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="24" rx="10.5" ry="2.4" class="pad"/><path d="M16 4.5c4 4.6 4.6 11 0 16.5-4.6-5.5-4-11.9 0-16.5z"/><path d="M10.5 9c3.2 2.8 5 7 5.2 12-3.4-2-5.6-6.4-5.2-12zM21.5 9c-3.2 2.8-5 7-5.2 12 3.4-2 5.6-6.4 5.2-12z" opacity=".7"/></svg><span class="nm">Bud</span><span class="pips" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><span class="sr">, speed 3 of 5</span></button>
+    <button class="ln" type="button" role="radio" aria-checked="false" data-d="4" title="Paper box (5)"><span class="key" aria-hidden="true">5</span><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5.5" y="21.5" width="21" height="3.6" rx="1" class="paper"/><path d="M10.6 8.5h10.8l2 13H8.6z"/><rect x="10" y="7" width="12" height="2.2" rx=".8" class="rim"/><path d="M16 9v12.4" class="rib"/></svg><span class="nm">Paper box</span><span class="pips" aria-hidden="true"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span><span class="sr">, speed 2 of 5</span></button>
+    <button class="ln gold" type="button" role="radio" aria-checked="false" data-d="5" title="Golden Festival (6)"><span class="key" aria-hidden="true">6</span><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="24.2" rx="12.5" ry="2.8" class="pad"/><circle cx="4.6" cy="22.6" r="1.1" class="cnd"/><circle cx="27.4" cy="22.6" r="1.1" class="cnd"/><circle cx="9" cy="25.8" r="1.1" class="cnd"/><circle cx="23" cy="25.8" r="1.1" class="cnd"/><path d="M16 4.5c2.6 4.6 3 10 0 15-3-5-2.6-10.4 0-15z"/><path d="M7 9.6c4.8 1.4 7.8 5 8.8 10-5-.9-8.4-4.3-8.8-10zM25 9.6c-4.8 1.4-7.8 5-8.8 10 5-.9 8.4-4.3 8.8-10z" opacity=".85"/><path d="M3.2 18.6c4.2-1.4 9-.7 12.8 1.8-4.1 2-9 1.6-12.8-1.8zM28.8 18.6c-4.2-1.4-9-.7-12.8 1.8 4.1 2 9 1.6 12.8-1.8z" opacity=".6"/></svg><span class="nm">Golden</span><span class="pips" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span><em class="fast">Fast</em><span class="sr">, speed 5 of 5</span></button>
+    <button class="ln gold chain" type="button" role="radio" aria-checked="false" data-d="6" title="Chain (7)"><span class="key" aria-hidden="true">7</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 22.5c4 1.6 7.4 1.6 10 0M19 22.5c3.4 1.6 7 1.6 10 0" class="rope"/><ellipse cx="7" cy="22.4" rx="4.6" ry="1.4" class="pad"/><path d="M7 15.5c1.4 2.2 1.6 4.4 0 6.6-1.6-2.2-1.4-4.4 0-6.6z"/><path d="M3.6 18.4c2.2.6 3.2 2 3.4 3.8-2.2-.3-3.3-1.6-3.4-3.8zM10.4 18.4c-2.2.6-3.2 2-3.4 3.8 2.2-.3 3.3-1.6 3.4-3.8z" opacity=".75"/><ellipse cx="16" cy="22.6" rx="3.6" ry="1.2" class="pad"/><ellipse cx="16" cy="20.6" rx="2.6" ry="1.8" opacity=".8"/><ellipse cx="25" cy="22.6" rx="3.4" ry="1.1" class="paper"/><path d="M23 17.4h4l.7 5h-5.4z"/></svg><span class="nm">Chain</span><span class="pips" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span><span class="sr">, speed 4 of 5, tows the other five</span></button>
+</div>
+<button class="switch freeBtn" id="freeSwitch" type="button" role="switch" aria-checked="false"><span class="knob"></span><span>Free Drift</span></button>
+<div class="speedo" id="speedo" aria-hidden="true"><svg viewBox="0 0 32 20"><path class="trk" d="M3 17a13 13 0 0 1 26 0"/><path class="val" id="spArc" d="M3 17a13 13 0 0 1 26 0" pathLength="100" stroke-dasharray="0 100"/><line class="ndl" id="spNdl" x1="16" y1="17" x2="6" y2="17"/><circle cx="16" cy="17" r="1.6"/></svg><b id="spNum">0.0</b><small>km/h</small></div>
+<button class="help" id="helpBtn" type="button" aria-label="Show controls">?</button>
+<div class="joy" id="joy" aria-hidden="true"><i></i></div>
+<button class="wish-btn" id="wishBtn" type="button" aria-label="Send a sky lantern"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 6.5c0-1.4 2-2.5 4.5-2.5s4.5 1.1 4.5 2.5L15.4 16H8.6z"/><path d="M8.6 16h6.8M12 16v2.6M10.5 20.5c.4-.9.9-1.4 1.5-1.4s1.1.5 1.5 1.4" class="fl"/></svg></button>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+  <div class="lb-card">
+    <button class="lb-x" id="lbClose" type="button" aria-label="Close"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></button>
+    <div class="ph"><img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" draggable="false"></div>
+    <div class="tx"><span class="meta" id="lbMeta"></span><h3 id="lbTitle"></h3><p id="lbText"></p><a class="btn ghost" href="#wish" id="lbCta" style="align-self:flex-start;margin-top:8px">Start a similar project</a></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><i></i><span id="toastText"></span></div>
+
+<script src="three.min.js"></script>
+<script src="three-addons.js"></script>
+<script src="templatemo-634-script.js"></script>
+</body>
+</html>
